@@ -3,11 +3,14 @@ Players have to choose the correct direction to get out of a room.
 
 This also is an introduction to making objects in Python.
 '''
+import random
+
 class Player:
     
     def __init__ (self, name, room):
         self.things = ['marshmallow']   #list of objects
         self.commands =['eat', 'hit']
+        self.visited=[]
         self.lifes = 2
         self.name = name
         self.room = room
@@ -17,10 +20,19 @@ class Player:
     def info(self):
         print ('Hi {}.  Your room {}. You have {} lifes left \n' \
         .format(self.name, self.room, self.lifes))
+        print ('You have been to these rooms.'+ str(self.visited))
         print ('*'* 60)
         
     def change_room(self):
-         self.room += 1  # use this if you want to go from room 1 to 2 to 3.  Change for random rooms
+         self.room = random.randint(0,2)  # random maze
+         self.visited.append(self.room)   # where have I already been
+         print (self.visited)
+         if 1 in self.visited:
+             print ('Been there, done that')
+             #self.change_room()
+         else:
+            print ('You must be new here')
+         #self.room += 1      #code for a sequential maze
          return (self.room)
 
     def take(self, thing):
@@ -42,4 +54,3 @@ class Player:
         action = str.lower(action)
         print (self.action[action] + '\n\n')
             
- 
