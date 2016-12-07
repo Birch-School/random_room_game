@@ -8,8 +8,8 @@ def r1(player):
 def r2(player):
     pass
 
-def r8(player):
-    print ('Whoah ...')
+def r4(player):
+    print("...Must have been a painting, then")
 
 ###########################  Setup game here ###########
 
@@ -44,5 +44,8 @@ while True:
     rm_name, rm_describe, rm_item = roomslist[room][0], roomslist[room][1],\
     roomslist[room][2]
     print ('{}, You are in {}, {}'.format(player.name, rm_name,rm_describe))  
-    print ('There is a {} here'.format(rm_item))
-    input("pause")
+    print ('There is a {} here - you take it.'.format(rm_item))
+    player.things.append("{}".format(rm_item))
+    print('Your inventory is now:')
+    print(player.inventory())
+    input("Pause...")
