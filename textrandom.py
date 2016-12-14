@@ -22,20 +22,9 @@ for line in open("rooms.csv"):
     room = line.split(",")          # single room list
     roomslist.append(room)          # list ofall the room lists
 # print (roomslist) 
-###############  make into a dictionary ######################
-#************ this version just uses the list, *****************
-'''     all lines between triple quotes are comments!!
-keys = []
-number_of_rooms = (len(roomslist))
-for i in range(number_of_rooms):
-    keys.append(i)
-rooms = dict(zip(keys, roomslist))
-#print (rooms)
-'''
 ############### ############Start a player ######################
 player = Player('Arlin', 1)
-room = player.change_room()     
-#  change_room()  call to local function
+# room = player.change_room()     
 
 ############################ Game Loop #########################
 while True:
