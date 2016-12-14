@@ -24,16 +24,15 @@ class Player:
         print ('*'* 60)
         
     def change_room(self):
-         self.room = random.randint(0,2)  # random maze
-         self.visited.append(self.room)   # where have I already been
-         print (self.visited)
-         if 1 in self.visited:
-             print ('Been there, done that')
-             #self.change_room()
-         else:
-            print ('You must be new here')
-         #self.room += 1      #code for a sequential maze
-         return (self.room)
+        rooms = range(5)  # how many rooms
+        self.unvisited = list(set(rooms)- set(self.visited))
+        l = len(self.unvisited)
+        n = random.randint (0,l)
+        print ('choosing room..' + str(n))
+        print ('You have been to {} but not {}'.format(self.visited, self.unvisited))
+        self.room = self.unvisited[n]
+        self.visited.append(self.room)   # where have I already been
+        return (self.room)
 
     def take(self, thing):
         pass
@@ -54,3 +53,4 @@ class Player:
         action = str.lower(action)
         print (self.action[action] + '\n\n')
             
+ 
