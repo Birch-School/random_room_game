@@ -1,4 +1,3 @@
-import random
 #imports the methods into this namespace, less typing
 from player import *
 
